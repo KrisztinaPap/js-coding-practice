@@ -10,6 +10,7 @@
 9. Cube the Square Root
 10. Get Word Count
 11. Which Generation Are You?
+12. Maximum Difference
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -210,5 +211,12 @@ function generation(x, y) {
 					break;
 			}
 	}
+}
+
+// 12. Maximum Difference
+/* Given an array of integers, return the difference between the largest and smallest integers in the array. */
+
+function difference(nums) {
+	return (Math.max(...nums) - Math.min(...nums));
 }
 
