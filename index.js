@@ -5,6 +5,8 @@
 4. Count Syllables
 5. Checking Even Numbers
 6. Find the Smallest and Biggest Numbers
+7. Bitwise Operations
+8. Multiply by Length
 
 ******************************TABLE OF CONTENTS **********************************/
 
@@ -23,6 +25,7 @@ function whichIsLarger(f, g) {
         return "f";
     } else if ( g() > f() ) {
         return "g";
+        
     } else {
         return "neither";
     }	
@@ -75,3 +78,31 @@ function minMax(arr) {
 	let result = [ arrMin, arrMax ];
 	return result;
 }
+
+// 7. Bitwise Operations
+/* Write three functions to calculate the bitwise AND, bitwise OR and bitwise XOR of two numbers. */
+
+function bitwiseAND(n1, n2) {
+	return (n1 & n2);
+}
+
+function bitwiseOR(n1, n2) {
+	return (n1 | n2);
+}
+
+function bitwiseXOR(n1, n2) {
+	return (n1 ^ n2);
+}
+
+// 8. Multiply by Length
+/* Create a function to multiply all of the values in an array by the amount of values in the given array. */
+
+function multiplyByLength(arr) {
+	let result = [];
+	for (let i=0; i < arr.length; i++) {
+		let newNumber = arr[i] * arr.length;
+		result.push(newNumber);
+	}
+	return result;
+}
+
