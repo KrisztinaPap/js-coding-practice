@@ -7,8 +7,11 @@
 6. Find the Smallest and Biggest Numbers
 7. Bitwise Operations
 8. Multiply by Length
+9. Cube the Square Root
+10. Get Word Count
+11. Which Generation Are You?
 
-******************************TABLE OF CONTENTS **********************************/
+****************************** TABLE OF CONTENTS **********************************/
 
 
 
@@ -104,5 +107,108 @@ function multiplyByLength(arr) {
 		result.push(newNumber);
 	}
 	return result;
+}
+
+// 9. Cube the Square Root
+/* Create a function that takes a number as an argument and returns the square root of that number cubed. (All numbers will evenly square root, so don't worry about decimal numbers.) */
+
+function cubeSquareRoot(num) {
+	let squareRoot = Math.sqrt(num);
+	let cubedNumber = Math.pow(squareRoot, 3);
+	return cubedNumber;
+}
+
+// 10. Get Word Count
+/* Create a function that takes a string and returns the word count. The string will be a sentence. */
+
+function countWords(str) {
+	let splitSentence = str.split(" ");
+	return splitSentence.length;
+}
+
+// 11. Which Generation Are You?
+/* Try finding your ancestors and offspring with code.
+
+Create a function that takes a number and "m" (for male) or "f" (for female), and returns the name of an ancestor (m/f) or descendant (m/f).
+
+    If the number is negative, return the related ancestor.
+    If positive, return the related descendant.
+	You are generation 0. In the case of 0 (male or female), return "me!".
+	
+Generation				Male					Female
+-3					great grandfather		great grandmother
+-2					grandfather				grandmother
+-1					father					mother
+0					me!						me!
+1					son						daughter
+2					grandson				granddaughter
+3					great grandson			great granddaughter */
+
+function generation(x, y) {
+	switch(x) {
+		case -3:
+			switch(y) {
+				case "f":
+					return "great grandmother";
+					break;
+				case "m":
+					return "great grandfather";
+					break;
+			}
+		case -2:
+			switch(y) {
+				case "f":
+					return "grandmother";
+					break;
+				case "m":
+					return "grandfather";
+					break;
+			}
+			case -1:
+			switch(y) {
+				case "f":
+					return "mother";
+					break;
+				case "m":
+					return "father";
+					break;
+			}
+			case 0:
+			switch(y) {
+				case "f":
+					return "me!";
+					break;
+				case "m":
+					return "me!";
+					break;
+			}
+			case 1:
+			switch(y) {
+				case "f":
+					return "daughter";
+					break;
+				case "m":
+					return "son";
+					break;
+			}
+			case 2:
+			switch(y) {
+				case "f":
+					return "granddaughter";
+					break;
+				case "m":
+					return "grandson";
+					break;
+			}
+			case 3:
+			switch(y) {
+				case "f":
+					return "great granddaughter";
+					break;
+				case "m":
+					return "great grandson";
+					break;
+			}
+	}
 }
 
