@@ -16,6 +16,7 @@
 15. Reverse integer
 16. Capitalize First Letter Of Each Word
 17. Max character
+18. FizzBuzz
 
 ****************************** TABLE OF CONTENTS **********************************/
 
