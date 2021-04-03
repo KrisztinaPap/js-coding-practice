@@ -17,6 +17,7 @@
 16. Capitalize First Letter Of Each Word
 17. Max character
 18. FizzBuzz
+19. Get total of numbers
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -366,10 +367,20 @@ function fizzBuzz() {
 	}
 }
 
+// 19. Add up numbers
+/*
+* Function takes in numbers separated by commas. Regardless the number of numbers, add them all up, return the total as an integer
+* Example: 1,2,3 => 6; 1,1,1,1,1,1,1 => 7
+*/
+
+function getTotal(...nums) {
+	return nums.reduce((total, num) => total += Number(num), 0);
+}
+
 ///////////////////////////////////////////////////////
 
 // Running current function for testing purposes
-const output = fizzBuzz();
+const output = getTotal(1,2,3,4,5);
 
 
 console.log(output);
