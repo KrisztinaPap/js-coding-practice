@@ -13,6 +13,8 @@
 12. Maximum Difference
 13. Reverse String
 14. Palindrome Checker
+15. Reverse integer
+16. Capitalize First Letter Of Each Word
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -290,11 +292,20 @@ function reverseInteger(num) {
 	return Number(result) * Math.sign(num); // Math.sign makes sure that if the number was negative, the result will be negative as well
 }
 
+// 16. Capitalize letters
+/*
+* Function takes in a string (sentences) and returns them all lowercase but the first letter fo each * word.
+* Example: "WELCOME home mY friend!" => "Welcome Home My Friend!"
+*/
+
+function capitalize(text) {
+	return text.toLowerCase().replace(/\b[a-z]/g, firstLetter => firstLetter.toUpperCase());
+}
 
 ///////////////////////////////////////////////////////
 
 // Running current function for testing purposes
-const output = reverseInteger(-648392);
+const output = capitalize('WELCOME home mY friend!');
 
 
 console.log(output);
