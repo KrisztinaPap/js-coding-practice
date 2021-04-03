@@ -15,6 +15,7 @@
 14. Palindrome Checker
 15. Reverse integer
 16. Capitalize First Letter Of Each Word
+17. Max character
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -299,13 +300,75 @@ function reverseInteger(num) {
 */
 
 function capitalize(text) {
-	return text.toLowerCase().replace(/\b[a-z]/g, firstLetter => firstLetter.toUpperCase());
+	return text
+		.toLowerCase()
+		.replace(/\b[a-z]/g, firstLetter => firstLetter.toUpperCase());
+}
+
+function capitalize2(text2) {
+	return text2
+		.toLowerCase()
+		.split(' ')
+		.map(word => word[0].toUpperCase() + word.substr(1))
+		.join(' ');
+}
+
+// 17. Max character
+/*
+* Return the character that is most common in a string.
+* Example: 'javascript' => 'a'
+*/
+
+function maxCharacter(text) {
+	let charMap = {};
+	let maxNum = 0;
+	let maxChar = '';
+
+	text.toLowerCase().replace(/[^a-z0-9]/g, '').split('').forEach(function(char) {
+		if(charMap[char]) {
+			charMap[char]++;
+		} else {
+			charMap[char] = 1;
+		}
+	});
+	// return charMap;  (Returns the entire charMap!)
+	
+	for(let char in charMap) {
+		if(charMap[char] > maxNum) {
+			maxNum = charMap[char];
+			maxChar = char;
+		}
+	}
+
+	return maxChar;
+}
+
+// 18. FizzBuzz
+/*
+* Print the numbers from 1-100. 
+* Numbers divisible by 3 should be replaced with 'fizz'
+* Numbers divisible by 5 should be replaced with 'buzz'
+* Numbers divisible by both 3 and 5 should be replaced with 'fizzbuzz'
+*/
+
+function fizzBuzz() {
+	for(let i = 1; i < 101; i++) {
+		if(i % 3 === 0 && i % 5 === 0) {
+			console.log('fizzbuzz');
+		} else if (i % 3 === 0) {
+			console.log('fizz');
+		} else if (i % 5 === 0) {
+			console.log('buzz');
+		} else {
+			console.log(i);
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////
 
 // Running current function for testing purposes
-const output = capitalize('WELCOME home mY friend!');
+const output = fizzBuzz();
 
 
 console.log(output);
