@@ -11,6 +11,8 @@
 10. Get Word Count
 11. Which Generation Are You?
 12. Maximum Difference
+13. Reverse String
+14. Palindrome Checker
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -25,10 +27,10 @@
     If the functions return the same number, return the string neither. */
 
 function whichIsLarger(f, g) {
-    if ( f() > g() ) {
-        return "f";
-    } else if ( g() > f() ) {
-        return "g";
+    if ( f > g ) {
+        return f;
+    } else if ( g > f ) {
+        return g;
         
     } else {
         return "neither";
@@ -50,11 +52,14 @@ function firstLast(arr) {
 /* Create a function that takes a number as an argument. Add up all the numbers from 1 to the number you passed to the function. For example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 4 = 10. */
 
 function addUp(num) {
-	let result = 0;
+/* 	let result = 0;
 	for ( let i = 1; i <= num; i++ ) {
 		result += i;
 	}
-	return result;
+	return result; */
+
+	return num.split
+
 }
 
 // 4. Count Syllables
@@ -220,3 +225,47 @@ function difference(nums) {
 	return (Math.max(...nums) - Math.min(...nums));
 }
 
+// 13. Reverse string
+/* Given a string, return the reverse in a string format.
+* Example: 'hello' => 'olleh'
+*/
+
+function reverseString(str) {
+	return str
+		.split('')
+		.reverse()
+		.join('');
+}
+
+function reverseString2(str) {
+	let reverseString = '';
+	for(let letter of str) {
+		reverseString = letter + reverseString;
+	}
+	return reverseString;
+}
+
+function reverseString3(str) {
+	let newString = '';
+	str.split('').forEach(element => newString = element + newString);
+	return newString;
+}
+
+// 14. Palindrome checker
+/* Is the string provided a palindrome?
+* Do not care about case or symbols/special chars/numbers, spaces
+* Return true or false
+* Example: 'Radar' => true; 'hello' => false; 'Ra dAr!!!' => true
+*/
+
+function palindromeChecker(str) {
+
+}
+
+
+///////////////////////////////////////////////////////
+
+// Running current function for testing purposes
+const output = reverseString3('Hello_!!!');
+
+console.log(output);
