@@ -52,14 +52,19 @@ function firstLast(arr) {
 /* Create a function that takes a number as an argument. Add up all the numbers from 1 to the number you passed to the function. For example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 4 = 10. */
 
 function addUp(num) {
-/* 	let result = 0;
+	let result = 0;
 	for ( let i = 1; i <= num; i++ ) {
 		result += i;
 	}
-	return result; */
+	return result; 
+}
 
-	return num.split
-
+function helperFunction(digit) {
+	let total = 0;
+	for(let i = 1; i <= digit; i++) {
+		total = total + i;
+	}
+	return total;
 }
 
 // 4. Count Syllables
@@ -251,6 +256,10 @@ function reverseString3(str) {
 	return newString;
 }
 
+function reverseStringWithReduce(str) {
+	return str.split('').reduce((reverseArray, arrayElement) => arrayElement + reverseArray, '');
+}
+
 // 14. Palindrome checker
 /* Is the string provided a palindrome?
 * Do not care about case or symbols/special chars/numbers, spaces
@@ -259,13 +268,17 @@ function reverseString3(str) {
 */
 
 function palindromeChecker(str) {
+	let str1 = str.toLowerCase().replace(/[^a-z]/g,'');
+	let str2 = str1.split('').reverse().join('');
 
+	return (str1 === str2);
 }
 
 
 ///////////////////////////////////////////////////////
 
 // Running current function for testing purposes
-const output = reverseString3('Hello_!!!');
+const output = palindromeChecker('Ra dAr!!!');
+
 
 console.log(output);
