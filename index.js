@@ -274,11 +274,27 @@ function palindromeChecker(str) {
 	return (str1 === str2);
 }
 
+// 15. Reverse an integer
+/*
+* Return an integer reversed
+* Example: 12345 => 54321
+*/
+
+function reverseInteger(num) {
+	let result = num
+		.toString()
+		.replace(/[^0-9]/g, '') // Useless line? Since the function only takes in integers...
+		.split('')
+		.reverse()
+		.join('');
+	return Number(result) * Math.sign(num); // Math.sign makes sure that if the number was negative, the result will be negative as well
+}
+
 
 ///////////////////////////////////////////////////////
 
 // Running current function for testing purposes
-const output = palindromeChecker('Ra dAr!!!');
+const output = reverseInteger(-648392);
 
 
 console.log(output);
