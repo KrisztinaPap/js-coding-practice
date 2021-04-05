@@ -21,3 +21,5 @@
 18. FizzBuzz
 19. Get total of numbers
 20. Add all primes
+21. Seek and destroy
+22. Even and odd sums

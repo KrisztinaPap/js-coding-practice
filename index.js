@@ -19,6 +19,8 @@
 18. FizzBuzz
 19. Get total of numbers
 20. Add all primes
+21. Seek and destroy
+22. Even and odd sums
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -41,6 +43,12 @@ function whichIsLarger(f, g) {
     } else {
         return "neither";
     }	
+}
+
+const whichIsLarger2 = (a,b) => {
+	return (a > b) ? a
+		: (b > a) ? b
+			: 'neither';
 }
 
 // 2. Return the First and Last Elements in an Array
@@ -133,6 +141,10 @@ function cubeSquareRoot(num) {
 	let squareRoot = Math.sqrt(num);
 	let cubedNumber = Math.pow(squareRoot, 3);
 	return cubedNumber;
+}
+
+const cubeSquareRoot2 = num => {
+	return Math.pow(Math.sqrt(num),3);
 }
 
 // 10. Get Word Count
@@ -409,10 +421,39 @@ function addAllPrimes(num) {
 	return total;
 }
 
+// 21. Seek and destroy
+/*
+* Two parameters are supplied: an array + values to be removed from the array
+* Example: [2,3,4,6,6, 'hey'], 2, 6 => [3,4,'hey'] 
+*/
+
+const seekAndDestroy = (arr, ...rest) => {
+	return arr.filter(val => !rest.includes(val));
+}
+
+// 22. Even and odd sums
+/*
+* Takes in an array and returns the sums of the even and odd numbers
+* Example: [1,2,3,4,5,6] = 9, 12
+*/
+function evenOddSums(...arr) {
+	let evenTotal = 0;
+	let oddTotal = 0;
+
+	arr.map(num => (num % 2 === 0) ? evenTotal += num : oddTotal += num);
+
+	console.log(`Even total: ${evenTotal}, Odd total: ${oddTotal}`);
+	return [evenTotal, oddTotal];
+}
+
+
+
+
 ///////////////////////////////////////////////////////
 
+
 // Running current function for testing purposes
-const output = es6GetTotal(1,2,3);
+const output = evenOddSums(1,2,3,4,5,6,7);
 
 
 console.log(output);
