@@ -18,6 +18,7 @@
 17. Max character
 18. FizzBuzz
 19. Get total of numbers
+20. Add all primes
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -374,13 +375,44 @@ function fizzBuzz() {
 */
 
 function getTotal(...nums) {
-	return nums.reduce((total, num) => total += Number(num), 0);
+	return nums.reduce((total, num) => total + Number(num));
+}
+
+const es6GetTotal = (...nums) => { return nums.reduce((total, number) => total + Number(number))};
+
+// 20. Add all primes
+/*
+* Function add up all prime nmumbers up to the number provided.
+* Example: 10 => 17
+* (It only adds up the prime numbers)
+*/
+
+function addAllPrimes(num) {
+
+	let total = 0;
+		
+	const isPrime = (i) => {
+		for(let ii = 2; ii < i; ii++) {
+			if(i % ii === 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// loop from 2 (prime numbers are larger than 1) to num and check if it is a prime number
+	for (let i = 2; i <= num; i++) {
+		if(isPrime(i)) {
+			total+=i;
+		}
+	}
+	return total;
 }
 
 ///////////////////////////////////////////////////////
 
 // Running current function for testing purposes
-const output = getTotal(1,2,3,4,5);
+const output = es6GetTotal(1,2,3);
 
 
 console.log(output);
