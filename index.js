@@ -21,6 +21,7 @@
 20. Add all primes
 21. Seek and destroy
 22. Even and odd sums
+23. Old enough to drink
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -446,6 +447,13 @@ function evenOddSums(...arr) {
 	return [evenTotal, oddTotal];
 }
 
+/*
+* 23. Old enough to drink 
+* Function takes in an array of ages. It returns an array of the ages that are old enough to drink (21)
+* Example: [5,12,18,21,23,44,56,76,100] => [21,23,44,56,76,100]
+*/
+
+const twentyOne = (...arr) => arr.filter(age => (age>=21) ? true : false);
 
 
 
@@ -453,7 +461,7 @@ function evenOddSums(...arr) {
 
 
 // Running current function for testing purposes
-const output = evenOddSums(1,2,3,4,5,6,7);
+const output = twentyOne(5,12,18,21,23,44,56,76,100);
 
 
 console.log(output);
