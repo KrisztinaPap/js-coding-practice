@@ -24,3 +24,6 @@
 21. Seek and destroy
 22. Even and odd sums
 23. Old enough to drink
+24. Create pattern
+
+![Screenshot of desired function output](/img/createPattern.png)

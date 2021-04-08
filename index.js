@@ -22,6 +22,7 @@
 21. Seek and destroy
 22. Even and odd sums
 23. Old enough to drink
+24. Create pattern
 
 ****************************** TABLE OF CONTENTS **********************************/
 
@@ -51,6 +52,14 @@ const whichIsLarger2 = (a,b) => {
 		: (b > a) ? b
 			: 'neither';
 }
+
+const whichIsLarger3 = (a,b) => {
+	return ((a-b)<0) ? `${b} is larger`
+		: ((a-b)>0) ? `${a} is larger`
+			: `${a} and ${b} are equal`;
+}
+
+const findLarger = (a,b) =>  (a==b) ? 'Numbers are equal' : Math.max(a,b);
 
 // 2. Return the First and Last Elements in an Array
 /* Create a function that takes an array of numbers and return the first and last elements as a new array. */
@@ -91,6 +100,8 @@ function numberSyllables(word) {
 	return result;
 }
 
+const numberSyllables2 = word => word.split('-').length;
+
 // 5. Checking Even Numbers
 /* Create a function that takes in an array and returns true if all its values are even, and false otherwise. */
 
@@ -107,6 +118,20 @@ function minMax(arr) {
 	let result = [ arrMin, arrMax ];
 	return result;
 }
+
+// New version of the above problem...
+// Function takes in list of numbers (not array) and returns the lowest and highest ones in that order
+const minMax2 = (...arr) => {
+	let arrMin = Math.min(...arr);
+	let arrMax = Math.max(...arr);
+	return [ arrMin, arrMax ];
+}
+
+function reverseStringWithReduce(str) {
+	return str.split('').reduce((reverseArray, arrayElement) => arrayElement + reverseArray, '');
+}
+	
+	
 
 // 7. Bitwise Operations
 /* Write three functions to calculate the bitwise AND, bitwise OR and bitwise XOR of two numbers. */
@@ -455,13 +480,89 @@ function evenOddSums(...arr) {
 
 const twentyOne = (...arr) => arr.filter(age => (age>=21) ? true : false);
 
+// const twentyOne2 = arr.filter(age => age >= 21);
 
+/*
+* 24. Create pattern
+*
+* Function should take in 4 variables and it should create a pattern like in the attached image.
+*/
 
+const createPattern = (major_x, major_y, minor_x, minor_y) => {
+	let charA = 'X';
+	let major_x_arr = [];
+	let major_y_arr = [];
+	let minor_x_arr = [];
+	let minor_y_arr = [];
+	let charSet = [];
+	let line = [];
+	let charSwitch = false;
+
+	// Function to create major_x array
+	const create_major_x_arr = (major_x) => {
+		major_x = parseInt(major_x);
+		for(let i = 1; i <= major_x; i++) {
+			major_x_arr.push(i);
+		}
+	return major_x_arr;
+	}
+
+	// Function to create major_y array
+	const create_major_y_arr = (major_y) => {
+		major_y = parseInt(major_y);
+		for(let i = 1; i <= major_y; i++) {
+			major_y_arr.push(i);
+		}
+	return major_y_arr;
+	}
+
+	// Function to create minor_x array
+	const create_minor_x_arr = (minor_x) => {
+		minor_x = parseInt(minor_x);
+		for(let i = 1; i <= minor_x; i++) {
+			minor_x_arr.push(i);
+		}
+	return minor_x_arr;
+	}
+
+	// Function to create minor_y array
+	const create_minor_y_arr = (minor_y) => {
+		minor_y = parseInt(minor_y);
+		for(let i = 1; i <= minor_y; i++) {
+			minor_y_arr.push(i);
+		}
+	return minor_y_arr;
+	}
+
+	// Create the variable arrays
+	major_x_arr = create_major_x_arr(major_x);
+	major_y_arr = create_major_y_arr(major_y);
+	minor_x_arr = create_minor_x_arr(minor_x);
+	minor_y_arr = create_minor_y_arr(minor_y);
+
+	// Create the pattern
+	major_y_arr.forEach( () => {
+		minor_y_arr.forEach( () => {	
+			major_x_arr.forEach( () => {
+				((charSwitch) ? (charA = 'O') : (charA = 'X')) 
+				minor_x_arr.forEach( () => {
+					charSet.push(charA)
+				});
+				charSwitch = !charSwitch;		
+			});		
+			line = charSet.join("");
+			charSwitch = !charSwitch;
+			charSet = [];
+			console.log(line);
+		});
+		charSwitch = !charSwitch;
+	});
+}
 ///////////////////////////////////////////////////////
 
 
 // Running current function for testing purposes
-const output = twentyOne(5,12,18,21,23,44,56,76,100);
+const output = createPattern(5,4,3,2);
 
 
 console.log(output);
